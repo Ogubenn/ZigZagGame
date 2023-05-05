@@ -16,7 +16,13 @@ public class GroundSpawner : MonoBehaviour
 
     void ZeminOluştur()
     {
-        sonZemin = Instantiate(sonZemin, sonZemin.transform.position + Vector3.back, sonZemin.transform.rotation);
+        Vector3 yon;
+
+        if (Random.Range(0, 2) == 0)//0 gelirse x eksenine zemin koy
+            yon = Vector3.left;
+        else
+            yon = Vector3.back;// 1 gelirse y eksenine zemin koy
+        sonZemin = Instantiate(sonZemin, sonZemin.transform.position + yon, sonZemin.transform.rotation);
     }
 
 }//class
