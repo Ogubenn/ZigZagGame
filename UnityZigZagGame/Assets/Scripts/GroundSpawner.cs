@@ -8,7 +8,7 @@ public class GroundSpawner : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 1; i< 10; i++)
+        for(int i = 1; i< 20; i++)
         {
             ZeminOluştur();
         }
