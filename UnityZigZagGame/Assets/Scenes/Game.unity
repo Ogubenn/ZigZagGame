@@ -946,9 +946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f00330fc551940deb734fbcfea4bdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.3
+  speed: 1.8
+  scoreText: {fileID: 363668546}
   groundSpawner: {fileID: 761405715}
-  "h\u0131zlanmaZorlugu": 0.02
+  "h\u0131zlanmaZorlugu": 0.04
 --- !u!54 &1315195275
 Rigidbody:
   m_ObjectHideFlags: 0
