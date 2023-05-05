@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float speed;
 
+    public GroundSpawner groundSpawner;
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
@@ -23,5 +25,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 hareket = yon * speed * Time.deltaTime;//objemizin hareket değeri
         transform.position += hareket;//hareket değerini sürekli pozisyonuma ekle
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Zemin"))
+        {
+            groundSpawner.ZeminOluştur();
+        }
     }
 }//class
