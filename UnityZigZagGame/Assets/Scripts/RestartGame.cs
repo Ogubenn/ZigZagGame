@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class RestartGame : MonoBehaviour
 {
     public static bool isRestart = false;

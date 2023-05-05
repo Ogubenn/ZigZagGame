@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Text scoreText, bestScoreText;
     [SerializeField] GameObject restartPanel, playGamePanel;
     public GroundSpawner groundSpawner;
-    public static bool isDead = false;
+    public static bool isDead = true;
 
 
     Vector3 yon = Vector3.left;
@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (RestartGame.isRestart)
+        {
+            isDead = false;
+            playGamePanel.SetActive(false);
+        }
         bestScore = PlayerPrefs.GetInt("BestScore");
         bestScoreText.text = "Best : " + bestScore.ToString();
     }
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
                 bestScore = (int)score;
                 PlayerPrefs.SetInt("BestScore", bestScore);
             }
-
+            restartPanel.SetActive(true);
             Destroy(this.gameObject, 3f);
         }
     }
@@ -84,5 +89,11 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         Destroy(zemin);
+    }
+
+    public void PlayGame()
+    {
+        isDead = false;
+        playGamePanel.SetActive(false);
     }
 }//class
