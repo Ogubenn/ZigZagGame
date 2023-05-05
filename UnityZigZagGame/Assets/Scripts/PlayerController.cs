@@ -5,23 +5,22 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector3 yon = Vector3.left;
-
+    [Header("Out Component")]
     [SerializeField] float speed;
-
     [SerializeField] Text scoreText, bestScoreText;
-
+    [SerializeField] GameObject restartPanel, playGamePanel;
     public GroundSpawner groundSpawner;
-
     public static bool isDead = false;
 
+
+    Vector3 yon = Vector3.left;
     public float hızlanmaZorlugu;
-
     float score = 0f;
-
     float artisMiktari = 1f;
-
     int bestScore = 0;
+
+
+
 
     private void Start()
     {
