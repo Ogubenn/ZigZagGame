@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] Text scoreText, bestScoreText;
     [SerializeField] GameObject restartPanel, playGamePanel;
+
+    [SerializeField] GameObject Coin;
     public GroundSpawner groundSpawner;
     public static bool isDead = true;
 
@@ -89,6 +91,15 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         Destroy(zemin);
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.gameObject.CompareTag("Coin"))
+        {
+            Debug.Log("coin yokoldu");
+            Destroy(Coin);
+        }
     }
 
     public void PlayGame()
