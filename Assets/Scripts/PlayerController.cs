@@ -9,20 +9,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] Text scoreText, bestScoreText;
     [SerializeField] GameObject restartPanel, playGamePanel;
-
     [SerializeField] GameObject Coin;
+    [SerializeField] AudioSource CoinSes;
     public GroundSpawner groundSpawner;
     public static bool isDead = true;
 
 
     Vector3 yon = Vector3.left;
     public float hızlanmaZorlugu;
-    float score = 0f;
-    float artisMiktari = 1f;
+    int score = 0;
     int bestScore = 0;
 
 
-
+    private void Awake() 
+    {
+    }
 
     private void Start()
     {
@@ -70,8 +71,9 @@ public class PlayerController : MonoBehaviour
         speed += Time.deltaTime * hızlanmaZorlugu;
         transform.position += hareket;//hareket değerini sürekli pozisyonuma ekle
 
-        score += artisMiktari * speed * Time.deltaTime;
-        scoreText.text ="Score: "+ ((int) score).ToString();
+        
+        //score += artisMiktari * speed * Time.deltaTime;
+        //scoreText.text ="Score: "+ ((int) score).ToString();
     }
         
 
@@ -93,14 +95,30 @@ public class PlayerController : MonoBehaviour
         Destroy(zemin);
     }
 
-    private void OnTriggerEnter(Collider other) 
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Coin"))
+        if (other.CompareTag("Coin"))
         {
-            Debug.Log("coin yokoldu");
-            Destroy(Coin);
+            
+            score += 10;
+            if(score  > 100)
+                speed = speed + 0;
+            if(score  > 200)
+                speed = speed + 0;
+            if(score  > 500)
+                speed = speed + 1;
+            scoreText.text ="Score: "+ ((int) score).ToString();
+            StartCoroutine(Yoket(other.gameObject));
+            CoinSes.Play();
         }
     }
+
+    IEnumerator Yoket()
+    {
+        yield return new WaitForSeconds(0f);
+        Destroy(gameObject);
+    }
+
 
     public void PlayGame()
     {

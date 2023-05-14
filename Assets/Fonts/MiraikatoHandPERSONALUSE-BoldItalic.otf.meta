@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 5d9db14ef24d1014cbd07b61ce531f92
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Miraikato Hand PERSONAL USE
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 243538c46b01c4f439320c2d872b7dff, type: 3}
+  - {fileID: 12800000, guid: f35c316d3c4171149ac4197526de6182, type: 3}
+  - {fileID: 12800000, guid: 765e44543debcb240bab70f4c4274bfb, type: 3}
+  - {fileID: 12800000, guid: 6c614a2b070ab234cb219aaa46697bbb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
