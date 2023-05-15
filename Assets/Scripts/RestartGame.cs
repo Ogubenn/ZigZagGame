@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
+
     public static bool isRestart = false;
 
     public void Reset()

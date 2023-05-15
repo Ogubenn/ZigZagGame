@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Text scoreText, bestScoreText;
     [SerializeField] GameObject restartPanel, playGamePanel;
     [SerializeField] GameObject Coin;
+    [SerializeField] Animator Anim;
     [SerializeField] AudioSource CoinSes;
+    [SerializeField] AudioSource BestScoreSes;
+
     public GroundSpawner groundSpawner;
     public static bool isDead = true;
 
@@ -56,10 +59,13 @@ public class PlayerController : MonoBehaviour
             if (bestScore < score)
             {
                 bestScore = (int)score;
+                BestScoreSes.Play();
                 PlayerPrefs.SetInt("BestScore", bestScore);
             }
             restartPanel.SetActive(true);
             Destroy(this.gameObject, 3f);
+            Anim.SetTrigger("GameOver");
+
         }
     }
 
